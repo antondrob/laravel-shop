@@ -16,7 +16,7 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
-
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
@@ -33,13 +33,15 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
-                <ul class="navbar-nav mr-auto">
+                <ul class="nav navbar nav">
+                    <li>
+                        <a href="{{route('admin.index')}}">Админ панель</a>
+                    </li>
                     <li class="dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Магазин</a>
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Добавить</a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">Категория 1</a></li>
-                            <li><a href="#">Категория 2</a></li>
-                            <li><a href="#">Категория 3</a></li>
+                            <li><a href="{{route('admin.category.index')}}">Категории</a></li>
+                            <li><a href="{{route('admin.product.index')}}">Товары</a></li>
                         </ul>
                     </li>
                 </ul>
