@@ -3,24 +3,14 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-sm-3">
+            <div class="col-sm-6">
                 <div class="jumbotron">
                     <p><span class="label label-primary">Категории {{$count_categories}}</span></p>
                 </div>
             </div>
-            <div class="col-sm-3">
+            <div class="col-sm-6">
                 <div class="jumbotron">
                     <p><span class="label label-primary">Товары {{$count_products}}</span></p>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                <div class="jumbotron">
-                    <p><span class="label label-primary">Посетители</span></p>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                <div class="jumbotron">
-                    <p><span class="label label-primary">Посетители сегодня</span></p>
                 </div>
             </div>
         </div>

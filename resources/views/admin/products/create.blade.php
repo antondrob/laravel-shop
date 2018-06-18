@@ -9,7 +9,7 @@
         @endcomponent
 
         <hr />
-        <form class="form-horizontal" action="{{route('admin.product.store')}}" method="post">
+        <form class="form-horizontal" enctype="multipart/form-data" action="{{route('admin.product.store')}}" method="post">
             {{csrf_field()}}
             {{-- Form include --}}
             @include('admin.products.partials.form')

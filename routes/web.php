@@ -10,7 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('/shop/category/{slug?}', 'ShopController@category')->name('category');
+Route::get('/shop/product/{slug?}', 'ShopController@product')->name('product');
 Route::group(['prefix'=>'admin', 'namespace'=>'Admin', 'middleware'=>['auth']],function(){
     Route::get('/','DashboardController@dashboard')->name('admin.index');
     Route::resource('/category','CategoryController',['as' => 'admin']);
@@ -19,9 +20,7 @@ Route::group(['prefix'=>'admin', 'namespace'=>'Admin', 'middleware'=>['auth']],f
 Route::get('/', function () {
     return view('shop.home');
 });
-Route::get('/catalog', function () {
-    return view('welcome');
-});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

@@ -15,6 +15,7 @@
         <a href="{{route('admin.product.create')}}" class="btn btn-primary pull-right"><i class="fa fa-plus-square-o"></i> Добавить товар</a>
         <table class="table table-striped">
             <thead>
+            <th>Картинка</th>
             <th>Наименование</th>
             <th>Публикация</th>
             <th class="text-right">Действие</th>
@@ -22,6 +23,7 @@
             <tbody>
             @forelse ($products as $product)
                 <tr>
+                    <td><img height="100px" src="/storage/images/{{$product->image}}" /></td>
                     <td>{{$product->title}}</td>
                     <td>@if($product->published == 1) Опубликовано @else Не опубликовано @endif</td>
                     <td class="text-right">
@@ -35,7 +37,7 @@
                 </tr>
             @empty
                 <tr>
-                    <td colspan="3" class="text-center"><h2>Данные отсутствуют</h2></td>
+                    <td colspan="4" class="text-center"><h2>Данные отсутствуют</h2></td>
                 </tr>
             @endforelse
             </tbody>

@@ -6,6 +6,8 @@ use App\Product;
 use App\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 
 class ProductController extends Controller
 {
@@ -49,7 +51,18 @@ class ProductController extends Controller
         if($request->input('categories')){
             $product->categories()->attach($request->input('categories'));
         }
-        return redirect()->route('admin.product.index');
+        if($request->hasFile('image')){
+            $fileNameWithExt = $request->file('image')->getClientOriginalName();
+            $filename = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+            $extension = $request->file('image')->getClientOriginalExtension();
+            $fileNameToStore = $filename.'_'.time().'.'.$extension;
+            $path = $request->file('image')->storeAs('public/images', $fileNameToStore);
+            $product->image = $fileNameToStore;
+            $product->save();
+        }else{
+            $fileNameToStore = 'noimage.jpg';
+        }
+            return redirect()->route('admin.product.index');
     }
 
     /**
@@ -98,6 +111,17 @@ class ProductController extends Controller
         if($request->input('categories')){
             $product->categories()->attach($request->input('categories'));
             return redirect()->route('admin.product.index');
+        }
+        if($request->hasFile('image')){
+            $fileNameWithExt = $request->file('image')->getClientOriginalName();
+            $filename = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+            $extension = $request->file('image')->getClientOriginalExtension();
+            $fileNameToStore = $filename.'_'.time().'.'.$extension;
+            $path = $request->file('image')->storeAs('public/images', $fileNameToStore);
+            $product->image = $fileNameToStore;
+            $product->save();
+        }else{
+            $fileNameToStore = 'noimage.jpg';
         }
     }
 

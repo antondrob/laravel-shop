@@ -10,7 +10,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
-              @include('layouts.top_menu',['categories' => $categories])
+              @include('layouts.top_menu', ['categories' => $categories])
             </ul>
 
             <!-- Right Side Of Navbar -->
